@@ -1,0 +1,26 @@
+<div>
+    <p-panel header="Animals" class="mb-4">
+        <p-listbox [options]="animals" optionLabel="nom" [(ngModel)]="selectedAnimal" (onChange)="fetchPlansForAnimal(selectedAnimal.id)">
+            <ng-template let-animal pTemplate="item">
+                <div class="flex align-items-center justify-content-between">
+                    <div>
+                        <span class="font-bold">{{ animal.nom }}</span> ({{ animal.espece }})
+                    </div>
+                    <p-button label="View Plans" icon="pi pi-search" class="p-button-text p-button-sm" style="margin-left: 1rem;" (click)="fetchPlansForAnimal(animal.id)"></p-button>
+
+                </div>
+            </ng-template>
+        </p-listbox>
+    </p-panel>
+
+    <p-panel *ngIf="selectedAnimalPlans.length" header="Plans for Selected Animal">
+        <ul class="list-none p-0">
+            <li *ngFor="let plan of selectedAnimalPlans" class="mb-2">
+                <div class="flex align-items-center">
+                    <i class="pi pi-book mr-2 text-primary"></i>
+                    <span class="font-medium">{{ plan.jour }}</span> - {{ plan.type }}
+                </div>
+            </li>
+        </ul>
+    </p-panel>
+</div>

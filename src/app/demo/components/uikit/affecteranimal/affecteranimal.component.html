@@ -1,0 +1,19 @@
+<div class="grid">
+	<div class="col-12 md:col-6">
+		<div class="card p-fluid">
+			<h5>User and Animal Selection</h5>
+
+            <h6>Select User and Animal</h6>
+			<p-dropdown [options]="dropdownItems" [(ngModel)]="selectedUser" placeholder="Select a User" [showClear]="true"></p-dropdown>
+			<p-dropdown [options]="dropdownItems2" [(ngModel)]="selectedAnimal" placeholder="Select an Animal" [showClear]="true"></p-dropdown>
+
+			<!-- Submit Button -->
+			<div class="field" style="margin-top: 1rem;">
+				<button pButton label="Assign Animal" icon="pi pi-check" (click)="submitRequest()"></button>
+			</div>
+
+			<!-- User Information Section -->
+			
+		</div>
+	</div>
+</div>
